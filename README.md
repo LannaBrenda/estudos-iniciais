@@ -1,1 +1,3 @@
-# Curso de programação básico backend fornecido pela lab365
+## Curso de programação básico backend
+
+Curso focado para os primeiros passo no backend fornecido pela LAB365.

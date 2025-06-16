@@ -71,27 +71,32 @@ console.log(produtosobj);
 //1 - Declare uma função chamada carregarProduto(ID) que recebe um parametro de ID e retorna uma nova promise com setTimeout que simula o atraso de 2 segundos e após esses segundos cria o objeto produto com id, nome e preço
 //2 - Chame e invoque essa função carregarProduto(1) usando o .then para processar o produto. converta para Json, imprima e reverta para objeto. Use o try Catch para lidar com erros
 
-
 function carregarProduto(id) {
-
   return new Promise((resolve, reject) => {
     console.log("Cadastrando dados...");
 
     setTimeout(() => {
       let sucesso = Math.random() > 0.5;
-      const produto = { id: id, nome: "maça", preco: 12 };
+      const produto1 = { id: id, nome: "maça", preco: 12 };
 
       if (sucesso) {
-        resolve(produto);
+        resolve(produto1);
       } else {
         reject("Falha ao cadastrar produto, revise os dados inseridos!");
       }
     }, 2000);
   });
 }
+
 carregarProduto(1)
   .then((mensagem) => {
-    console.log(mensagem);
+    console.log("Produto: ", mensagem);
+
+    const produtoJson = JSON.stringify(mensagem);
+    console.log("Produto (JSON):", produtoJson);
+
+    const reverter = JSON.parse(produtoJson);
+    console.log("JSON revertido:", reverter);
   })
   .catch((erro) => {
     console.log(erro);

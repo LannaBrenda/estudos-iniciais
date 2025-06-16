@@ -87,7 +87,7 @@ function carregarProduto(id) {
     }, 2000);
   });
 }
-
+/*
 carregarProduto(1)
   .then((mensagem) => {
     console.log("Produto: ", mensagem);
@@ -100,4 +100,20 @@ carregarProduto(1)
   })
   .catch((erro) => {
     console.log(erro);
-  });
+  });*/
+
+const novaChamada = async () => {
+  try {
+    const resultado = await carregarProduto(1);
+    console.log("Resultado da novaChamada (sucesso):", resultado);
+
+    const produtoJson1 = JSON.stringify(resultado);
+    console.log("Produto (JSON):", produtoJson1);
+
+    const reverter1 = JSON.parse(produtoJson1);
+    console.log("JSON revertido:", reverter1);
+  } catch (erro) {
+    console.log(erro);
+  }
+};
+novaChamada()
